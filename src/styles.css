@@ -1,0 +1,80 @@
+/* .App {
+    width: 100%;
+    display: flex;
+    align-items: center;    
+} */
+html {
+    height: 100%;
+}
+
+#root {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.App {
+    height: 100%;
+    /* background-color: #831717; */
+}
+
+.header {
+    background: #831717 center/cover url('../src/assets/RUPP-990x660.jpg') no-repeat;
+    background-repeat: no-repeat;
+    height: 50%;
+}
+
+.container-fluid {
+    /* background-color: #831717; */
+}
+
+.container {
+    background-color: #ffffff;
+}
+.card-img-overlay {
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    background-color: #8317;
+    justify-content: space-between;
+}
+
+.card-img-overlay .container {
+    background-color: transparent;
+    text-align: start;
+    padding: 0;
+}
+
+.card-img-overlay .container .card-title {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.form-label {
+    font-family: 'Content, cursive';
+}
+
+.navbar .container{
+    background-color: transparent;
+    padding: 0;
+}
+
+.navbar-brand {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+}
+
+.nav-brand-text {
+    text-align: start;
+    margin-left: 1rem;
+    margin-bottom: 0;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #911818;
+    border-color: #911818;
+}
