@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap'
 import { Row, Col } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
 import { useForm } from "react-hook-form";
+import complain_type from '../data/complaint-type.json'
 
 const FormComplain = () => {
 
@@ -18,9 +19,6 @@ const FormComplain = () => {
     }
     return (
         <Container className="p-0">
-            {/* <br />
-            <h5 style={khmerMoulFont}>ពាក្យបណ្ដឹងតវ៉ា</h5>
-            <br></br> */}
 
             <Form noValidate validated={validated} onSubmit={handleSubmit(onSubmit)}>
                 <Row>
@@ -64,7 +62,7 @@ const FormComplain = () => {
                             <Form.Control
                                 isInvalid={!!errors.name}
                                 // pattern: /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/g
-                                {...register("name", { required: true, pattern: /^([^0-9]*)$/g})} required type="text" placeholder="ឈ្មោះ" />
+                                {...register("name", { required: true, pattern: /^([^0-9]*)$/g })} required type="text" placeholder="ឈ្មោះ" />
                             <Form.Control.Feedback type='invalid'>
                                 {errors.name?.type === 'required' ? 'This field is required' : 'This name is invalid'}
                             </Form.Control.Feedback>
@@ -100,7 +98,7 @@ const FormComplain = () => {
                         </Form.Group>
 
                         <Form.Group className="text-start mb-3">
-                            <Form.Label>អាសយដ្ឋានបច្ចុប្បន្ន៖</Form.Label>
+                            <Form.Label>អាសយដ្ឋានបច្ចុប្បន្ន៖*</Form.Label>
                             <Form.Control
                                 {...register('address', { required: true })}
                                 required
@@ -145,6 +143,17 @@ const FormComplain = () => {
                     </> : ''
                 }
 
+                <Form.Group className='text-start mb-3'>
+                    <Form.Label>ប្រភេទនៃបណ្ដឹងតវា៉&#42;</Form.Label>
+                    <Form.Select className="complaint-type-selection mb-3">
+                        {
+                            complain_type.type.map((type) => {
+                                return <option>{type}</option>
+                            })
+                        }
+                    </Form.Select>
+                </Form.Group>
+
                 <Form.Group className="text-start mb-3">
                     <Form.Label>កម្មវត្ថុ៖&#42;</Form.Label>
                     <Form.Control
@@ -172,12 +181,11 @@ const FormComplain = () => {
                 </Form.Group>
                 <hr></hr>
                 <Button style={
-                        { 
-                            fontFamily: 'Hanuman, serif', 
-                            backgroundColor: '#831717',
-                            
-                        }
-                    } 
+                    {
+                        fontFamily: 'Hanuman, serif',
+                        backgroundColor: '#831717',
+                    }
+                }
                     className='submit-btn w-100' type="submit" variant="primary" size="md">
                     ដាក់ស្នើ
                 </Button>
