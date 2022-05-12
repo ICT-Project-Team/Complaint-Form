@@ -78,3 +78,10 @@ body {
     background-color: #911818;
     border-color: #911818;
 }
+
+
+    @media (max-width: 575px) {
+        .flex-xs-column-reverse {
+            flex-direction: column-reverse;
+        }
+    }
