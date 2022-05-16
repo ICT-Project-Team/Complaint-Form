@@ -13,6 +13,8 @@ html {
 
 body {
     height: 100%;
+    padding: unset;
+    margin: unset;
 }
 
 .App {
@@ -21,9 +23,8 @@ body {
 }
 
 .header {
-    background: #831717 center/cover url('../src/assets/RUPP-990x660.jpg') no-repeat;
-    background-repeat: no-repeat;
-    height: 50%;
+    background: #831717 center/cover url('../src/assets/rupp.png') no-repeat;
+    height: 30%;
 }
 
 .container-fluid {
