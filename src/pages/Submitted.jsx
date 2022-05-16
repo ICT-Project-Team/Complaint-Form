@@ -29,7 +29,7 @@ const Submitted = () => {
                         fontFamily: 'Hanuman, serif',
                         backgroundColor: '#831717',
                     }
-                } to={'/'}>
+                } to={'/form'}>
                     ដាក់ស្នើបណ្ដឹងបន្ថែម
                 </Link>
             </Container>
