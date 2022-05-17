@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Form, Spinner } from 'react-bootstrap'
 import { Container } from 'react-bootstrap'
 import { Row, Col } from 'react-bootstrap'
+import styled from 'styled-components'
 import Button from 'react-bootstrap/Button';
 import { useForm } from "react-hook-form";
 import complain_type from '../data/complaint-type.json'
@@ -58,18 +59,25 @@ const FormComplain = () => {
         setValue("department_id", `${department.type[facultyId - 1][0].id}`);
     }, [facultyId])
 
+    const FormWrapper = styled.div`
+        font-family: var(--primary-font);
+        .container{
+          max-width: 1000px;
+        }
+    `
+
     return (
-        <div>
+        <FormWrapper>
             <div className='container-fluid'>
                 <br />
-                <Container>
+                <Container className={"container"}>
                     <Row className='flex-xs-column-reverse flex-sm-column-reverse flex-lg-row'>
-                        <Col xs={12} lg={8}>
+                        <Col xs={12} lg={12}>
                             <Form noValidate validated={validated} onSubmit={handleSubmit(onSubmit)}>
                                 <Form.Group className='text-start'>
                                     <Form.Label
                                         style={{ marginRight: '1.5rem' }}
-                                    >បណ្ដឹងធ្វើឡើងជាលក្ខណៈ​&#42;</Form.Label>
+                                    >បណ្ដឹងធ្វើឡើងជាលក្ខណៈ&#42;</Form.Label>
                                     <div
                                         key={'radio'}
                                         className="mb-3">
@@ -115,7 +123,7 @@ const FormComplain = () => {
                                 <Row>
                                     <Col xs={12} sm={6}>
                                         <Form.Group className="facultyOrInstitute-selection text-start mb-3">
-                                            <Form.Label>មហាវិទ្យាល័យ​&#47;វិទ្យាស្ថាន​&#42;</Form.Label>
+                                            <Form.Label>មហាវិទ្យាល័យ&#47;វិទ្យាស្ថាន&#42;</Form.Label>
                                             <Form.Select
                                                 {...register("faculty_id")}
                                                 onChange={(e) => setFacultyId(e.target.value)} // save faculty id
@@ -130,7 +138,7 @@ const FormComplain = () => {
                                     </Col>
                                     <Col xs={12} sm={6}>
                                         <Form.Group className="department-selection text-start mb-3">
-                                            <Form.Label>ដេប៉ាតឺម៉​ង់​&#42;</Form.Label>
+                                            <Form.Label>ដេប៉ាតឺម៉ង់&#42;</Form.Label>
                                             <Form.Select
                                                 {...register("department_id")}
                                                 className="department-selection mb-3">
@@ -367,31 +375,31 @@ const FormComplain = () => {
                                 </Button>
                             </Form>
                         </Col>
-                        <Col xs={12} lg={4}>
-                            {/* Disclaimer */}
-                            <Card
-                                className='text-start mb-3'
-                                style={{
-                                    height: 'fit-content',
-                                }}>
-                                <Card.Body>
-                                    <Card.Title className='fw-bold'>Frequently Asked</Card.Title>
-                                    {/* <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle> */}
-                                    <Card.Text>
-                                        A Disclaimer may be required if your website has access to external links, health information, fitness information, affiliate links, etc.
+                        {/*<Col xs={12} lg={4}>*/}
+                        {/*    /!* Disclaimer *!/*/}
+                        {/*    <Card*/}
+                        {/*        className='text-start mb-3'*/}
+                        {/*        style={{*/}
+                        {/*            height: 'fit-content',*/}
+                        {/*        }}>*/}
+                        {/*        <Card.Body>*/}
+                        {/*            <Card.Title className='fw-bold'>Frequently Asked</Card.Title>*/}
+                        {/*            /!* <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle> *!/*/}
+                        {/*            <Card.Text>*/}
+                        {/*                A Disclaimer may be required if your website has access to external links, health information, fitness information, affiliate links, etc.*/}
 
-                                        Keep you business safe at all times and create a custom-made Disclaimer in less than 3 minutes to limit your liability related to the content you publish on your platform.
-                                    </Card.Text>
-                                    {/* <Card.Link href="#">Card Link</Card.Link>
-                                <Card.Link href="#">Another Link</Card.Link> */}
-                                </Card.Body>
-                            </Card>
-                        </Col>
+                        {/*                Keep you business safe at all times and create a custom-made Disclaimer in less than 3 minutes to limit your liability related to the content you publish on your platform.*/}
+                        {/*            </Card.Text>*/}
+                        {/*            /!* <Card.Link href="#">Card Link</Card.Link>*/}
+                        {/*        <Card.Link href="#">Another Link</Card.Link> *!/*/}
+                        {/*        </Card.Body>*/}
+                        {/*    </Card>*/}
+                        {/*</Col>*/}
                     </Row>
                 </Container>
                 <br />
             </div>
-        </div>
+        </FormWrapper>
     )
 }
 

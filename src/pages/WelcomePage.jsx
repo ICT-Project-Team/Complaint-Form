@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import backgroundImage from '../assets/rupp.png'
+import backgroundImage from '../assets/background.jpg'
 import {Link} from "react-router-dom";
 
 function WelcomePage(props) {
@@ -43,7 +43,7 @@ const WelcomeStyled = styled.section`
   //top: 50%;
   //left: 50%;
   border-radius: 4px;
-  background:rgba(255, 255, 255, .9);
+  background:rgba(255, 255, 255, .85);
   padding: 2.5% 5% 1.5% 5%;
   max-width: 1000px;
   margin: auto;
