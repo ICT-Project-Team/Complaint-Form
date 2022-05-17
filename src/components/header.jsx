@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Container } from 'react-bootstrap';
-import RuppHeader from '../assets/RUPP-990x660.jpg';
+import RuppHeader from '../assets/headerbackground.jpg';
 import '../styles.css';
 import NavbarComponent from './navbar';
 const Header = () => {
