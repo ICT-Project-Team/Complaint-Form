@@ -13,5 +13,7 @@ code {
     monospace;
 }
 :root{
-  --primary-font: 'Battambang', cursive;
+  --font-Battambang: 'Battambang', cursive;
+  --font-Koulen :'Koulen', cursive;
+  --font-Dangrek :'Dangrek', cursive;
 }
