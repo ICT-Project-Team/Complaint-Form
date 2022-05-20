@@ -60,14 +60,15 @@ const FormComplain = () => {
     }, [facultyId])
 
     const FormWrapper = styled.div`
-        font-family: var(--primary-font);
-        .container{
-          max-width: 1000px;
-        }
+      font-family: var(--primary-font);
+      font-weight: 400;
+      .container{
+        max-width: 1000px;
+      }
     `
 
     return (
-        <FormWrapper>
+        <div style={{fontFamily:"var(--primary-font)"}}>
             <div className='container-fluid'>
                 <br />
                 <Container className={"container"}>
@@ -399,7 +400,7 @@ const FormComplain = () => {
                 </Container>
                 <br />
             </div>
-        </FormWrapper>
+        </div>
     )
 }
 
