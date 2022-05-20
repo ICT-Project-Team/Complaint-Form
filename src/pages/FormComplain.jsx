@@ -29,19 +29,21 @@ const FormComplain = () => {
         // enable loading to start submit
         setLoading(true)
         setValidated(true);
-        console.log(data);
-        // append additional data
-        data['reference'] = 'null'
-        data['student_type'] = 'bachelor'
+
+        var formData = new FormData(document.getElementById("form_complain"));
+        // 31 mean others
+        if(data.complain_sub_category_id == 31) {
+            formData.set('complain_sub_category_id', null)
+        }
+        formData.append("student_type", 'bachelor');
+
+        // Warning: Dont explicitly set Content-Type in header when working with FormData()
         const requestOptions = {
             method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
+            body: formData,
         };
-        fetch(`${process.env.REACT_APP_CONTENT_BASE_URL}/api/send_complaint`, requestOptions).then(
+
+        fetch(`http://localhost:8000/api/send_complaint`, requestOptions).then(
             response => response.json()
         ).then(
             data => {
@@ -56,7 +58,6 @@ const FormComplain = () => {
     }
 
     useEffect(() => {
-        // console.log(isRevealIdentity)
         setValue("department_id", `${department.type[facultyId - 1][0].id}`);
     }, [facultyId])
 
@@ -75,9 +76,7 @@ const FormComplain = () => {
             animate={{opacity: 1}}
             // delay={{delay: 0}}
             exit={{opacity: 0}}
-            transition={{duration: 0.5}}
-
-        >
+            transition={{duration: 0.5}}>
             <div style={{fontFamily:"var(--font-Battambang)"}}>
                 <div className='container-fluid'>
                     <br />
