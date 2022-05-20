@@ -13,6 +13,8 @@ html {
 
 body {
     height: 100%;
+    padding: unset;
+    margin: unset;
 }
 
 .App {
@@ -21,9 +23,8 @@ body {
 }
 
 .header {
-    background: #831717 center/cover url('../src/assets/RUPP-990x660.jpg') no-repeat;
-    background-repeat: no-repeat;
-    height: 50%;
+    background: #831717 center/cover url('../src/assets/headerbackground.jpg') no-repeat;
+    height: 40%;
 }
 
 .container-fluid {
@@ -49,11 +50,11 @@ body {
 
 .card-img-overlay .container .card-title {
     font-size: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: clamp(.5em,2.5vw,3em);
 }
 
 .form-label {
-    font-family: 'Content, cursive';
+    /*font-family: 'Content, cursive';*/
 }
 
 .navbar .container{
