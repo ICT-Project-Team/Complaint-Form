@@ -9,6 +9,7 @@ import faculty from '../data/faculty.json'
 import department from '../data/department.json'
 import { Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+// import axios from 'axios';
 
 const FormComplain = () => {
     const navigate = useNavigate();
@@ -23,22 +24,22 @@ const FormComplain = () => {
     const watchFields = watch(["department_id"]);
 
     const onSubmit = (data) => {
+        const axios = require('axios').default;
+
         // enable loading to start submit
         setLoading(true)
         setValidated(true);
-        console.log(data);
-        // append additional data
-        data['reference'] = 'null'
-        data['student_type'] = 'bachelor'
+
+        var formData = new FormData(document.getElementById("form1"));
+        formData.append("student_type", 'bachelor');
+
+        // Warning: Dont explicitly set Content-Type in header when working with FormData()
         const requestOptions = {
             method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
+            body: formData,
         };
-        fetch(`${process.env.REACT_APP_CONTENT_BASE_URL}/api/send_complaint`, requestOptions).then(
+
+        fetch(`http://localhost:8000/api/send_complaint`, requestOptions).then(
             response => response.json()
         ).then(
             data => {
@@ -53,7 +54,6 @@ const FormComplain = () => {
     }
 
     useEffect(() => {
-        // console.log(isRevealIdentity)
         setValue("department_id", `${department.type[facultyId - 1][0].id}`);
     }, [facultyId])
 
@@ -63,7 +63,7 @@ const FormComplain = () => {
             <Container>
                 <Row className='flex-xs-column-reverse flex-sm-column-reverse flex-lg-row'>
                     <Col xs={12} lg={8}>
-                        <Form noValidate validated={validated} onSubmit={handleSubmit(onSubmit)}>
+                        <Form id="form1" noValidate validated={validated} onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
                             <Form.Group className='text-start'>
                                 <Form.Label
                                     style={{ marginRight: '1.5rem' }}
@@ -347,7 +347,7 @@ const FormComplain = () => {
                             <Form.Group controlId="formFileMultiple" className="text-start mb-3">
                                 <Form.Label>ឯកសារយោង</Form.Label>
                                 <Form.Control
-                                    {...register('reference')}
+                                    {...register('references[]')}
                                     type="file"
                                     multiple />
                             </Form.Group>
