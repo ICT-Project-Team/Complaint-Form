@@ -2,24 +2,39 @@ import React from 'react';
 import styled from 'styled-components'
 import backgroundImage from '../assets/background.jpg'
 import {Link} from "react-router-dom";
+import { motion } from "framer-motion"
 
-function WelcomePage(props) {
+function WelcomePage() {
     return (
-        <WelcomeLayout>
-            <LinearBackground>
-                <WelcomeStyled>
-                    <h1>Student Grievance Form</h1>
-                    <h2>Royal University Of Phnom Penh</h2>
-                    <p>📃 Purpose of Grievances - Grievance form is a formal complaint that is used to register a complaint against a particular individual or organisation. Grievance procedure can be initiated by any employee, including a manager, or a set of employees. Grievance is a formal or informal process that is, The purpose of a grievance policy provides staff with a readily accessible procedure for addressing problems or concerns they may have regarding their work, management, or another member of the team.</p>
+        <motion.div
+            className={"home"}
+            style={{height: '100%'}}
 
-                    <Link to={"/form"}>
-                        <button>Let's Start</button>
-                    </Link>
-                    <br/>
-                    <span>All Right Received 2022 Royal University Of Phnom Penh, <a href={"http://rupp.edu.kh/"}>More Information</a></span>
-                </WelcomeStyled>
-            </LinearBackground>
-        </WelcomeLayout>
+            // intial={{opacity: 0}}
+            // animate={{opacity: 1}}
+            // exit={{opacity: 0}}
+
+            intial={{width: 0, opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0, transition:{duration: 0.15}}}
+            >
+            <WelcomeLayout>
+                <LinearBackground>
+                    <WelcomeStyled>
+                        <h1>Student Grievance Form</h1>
+                        <h2>Royal University Of Phnom Penh</h2>
+                        <p>📃 Purpose of Grievances - Grievance form is a formal complaint that is used to register a complaint against a particular individual or organisation. Grievance procedure can be initiated by any employee, including a manager, or a set of employees. Grievance is a formal or informal process that is, The purpose of a grievance policy provides staff with a readily accessible procedure for addressing problems or concerns they may have regarding their work, management, or another member of the team.</p>
+                        <Link to={"/form"}>
+                            <button>Let's Start</button>
+                        </Link>
+                        <br/>
+                        <span>All Right Received 2022 Royal University Of Phnom Penh,
+                        <a href={"http://rupp.edu.kh/"}>More Information</a>
+                    </span>
+                    </WelcomeStyled>
+                </LinearBackground>
+            </WelcomeLayout>
+        </motion.div>
     );
 }
 
@@ -47,17 +62,17 @@ const WelcomeStyled = styled.section`
   padding: 2.5% 5% 1.5% 5%;
   max-width: 1000px;
   margin: auto;
-  
+
   @media (max-width: 768px){
     padding:10% 5% 5% 5%;
   }
-  
+
   span{
     color:#18181a;
     font-size: clamp(.75em,1vw,1em);
 
   }
-  
+
   h1{
     //font-size: 1.em;
     margin-bottom: .1em;

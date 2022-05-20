@@ -1,28 +1,37 @@
 import React from 'react';
 import { Card, Container } from 'react-bootstrap';
-import RuppHeader from '../assets/headerbackground.jpg';
 import '../styles.css';
 import NavbarComponent from './navbar';
+import { motion } from 'framer-motion'
 const Header = () => {
 
-    const khmerMoulFont = { fontFamily: 'Angkor, cursive' };
-
     return (
-        <Card className="header text-white">
-            {/* <Card.Img src="holder.js/100px270" alt="Card image" /> */}
-            <Card.ImgOverlay>
+        <Card className="header text-white" style={{
+            borderRadius:"unset",
+            border: "unset",
+        }}>
+            <Card.ImgOverlay style={{padding:".75em 1em"}}>
                 <NavbarComponent />
                 <Container>
-                    <Card.Title style={khmerMoulFont}>
-                        ពាក្យបណ្ដឹងតវ៉ា <br/> 
-                        <span style={
-                            {
-                                fontSize: '1.5rem', 
-                                fontWeight: 'lighter',
-                                fontFamily: 'Roboto, sans-serif'
-                            }
-                        }>Complaint Form</span>
-                    </Card.Title>
+                    <motion.div
+                        initial={{x:"-150px",opacity: 0}}
+                        animate={{x: "0", opacity: 1}}
+                        transition={{delay: 0.15, duration: .25}}
+                    >
+                        <Card.Title>
+                        <span style={{fontFamily: 'var(--font-Koulen)'}}>
+                            ពាក្យបណ្ដឹងតវ៉ា
+                        </span>
+                            <br/>
+                            <span style={
+                                {
+                                    fontSize: '1.5rem',
+                                    fontWeight: 'light',
+                                    fontFamily: 'Roboto, sans-serif'
+                                }
+                            }>Complaint Form</span>
+                        </Card.Title>
+                    </motion.div>
                 </Container>
             </Card.ImgOverlay>
         </Card>
