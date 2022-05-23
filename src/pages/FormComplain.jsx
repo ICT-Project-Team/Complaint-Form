@@ -15,7 +15,7 @@ import Header from "../components/header";
 
 const FormComplain = () => {
     const navigate = useNavigate();
-    const khmerMoulFont = { fontFamily: 'Moul, cursive' };
+    const khmerMoulFont = { fontFamily: "var(--font-Koulen)" };
     const [isRevealIdentity, setIsRevealIdentity] = useState('អនាមិក');
     const [facultyId, setFacultyId] = useState(1);
     const [validated, setValidated] = useState(false);
@@ -43,7 +43,7 @@ const FormComplain = () => {
             body: formData,
         };
 
-        fetch(`http://localhost:8000/api/send_complaint`, requestOptions).then(
+        fetch(process.env.REACT_APP_CONTENT_BASE_URL + `/api/send_complaint`, requestOptions).then(
             response => response.json()
         ).then(
             data => {
@@ -83,7 +83,7 @@ const FormComplain = () => {
                     <Container className={"container"}>
                         <Row className='flex-xs-column-reverse flex-sm-column-reverse flex-lg-row'>
                             <Col xs={12} lg={12}>
-                                <Form noValidate validated={validated} onSubmit={handleSubmit(onSubmit)}>
+                                <Form id={"form_complain"} noValidate validated={validated} onSubmit={handleSubmit(onSubmit)}>
                                     <Form.Group className='text-start'>
                                         <Form.Label
                                             style={{ marginRight: '1.5rem' }}
@@ -320,12 +320,14 @@ const FormComplain = () => {
                                     <Form.Group className='text-start mb-3'>
                                         <Form.Label>ប្រភេទនៃបណ្ដឹងតវា៉</Form.Label>
                                         <Form.Select
+
                                             {...register("complain_sub_category_id")}
                                             className="complaint-type-selection mb-3"
                                             onChange={(e) => setTypeOfComplain(e.target.value)}>
                                             {
                                                 complain_type.type.map((type) => {
-                                                    return <option key={type.name} value={type.id}>{type.name}</option>
+                                                    return <option
+                                                        key={type.name} value={type.id}>{type.name}</option>
                                                 })
                                             }
                                         </Form.Select>
@@ -374,7 +376,7 @@ const FormComplain = () => {
                                     <hr></hr>
                                     <Button style={
                                         {
-                                            fontFamily: 'Hanuman, serif',
+                                            fontFamily: 'var(--font-Dangrek)',
                                             backgroundColor: '#831717',
                                         }
                                     }

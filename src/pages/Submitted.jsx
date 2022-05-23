@@ -21,13 +21,15 @@ const Submitted = () => {
                     style={{ marginBottom: '1.5rem' }}
                 />
                 <h3
-                    style={Hanuman}
+                    style={{fontFamily:"var(--font-Koulen)"}}
                 >បណ្ដឹងត្រូវបានស្នើដោយជោគជ័យ</h3>
                 <br />
-                <Link className='btn btn-primary' style={
+                <Link  className='btn btn-primary' style={
                     {
-                        fontFamily: 'Hanuman, serif',
+                        fontFamily: "var(--font-Dangrek)",
                         backgroundColor: '#831717',
+                        borderColor:"unset",
+                        padding:'.75em 1.5em',
                     }
                 } to={'/form'}>
                     ដាក់ស្នើបណ្ដឹងបន្ថែម
