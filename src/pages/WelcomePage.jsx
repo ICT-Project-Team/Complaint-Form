@@ -20,9 +20,19 @@ function WelcomePage() {
             >
             <WelcomeLayout>
                 <LinearBackground>
-                    <WelcomeStyled>
-                        <h1>Student Grievance Form</h1>
-                        <h2>Royal University Of Phnom Penh</h2>
+                    <WelcomeStyled as={motion.section} 
+                      initial={{y: -500, opacity: 0}} 
+                      animate={{ y: 0 , opacity: 1}}
+                      transition={{ duration: 0.5, delay: 0.25}}
+                      >
+                        <motion.div
+                          // initial={{y: -150, opacity: 0,}}                                                
+                          // animate={{y: 0, opacity: 1}}
+                          // transition={{delay: 0.25, duration: 0.25}}
+                        >
+                          <h1>Student Grievance Form</h1>
+                          <h2>Royal University Of Phnom Penh</h2>
+                        </motion.div>
                         <p>📃 Purpose of Grievances - Grievance form is a formal complaint that is used to register a complaint against a particular individual or organisation. Grievance procedure can be initiated by any employee, including a manager, or a set of employees. Grievance is a formal or informal process that is, The purpose of a grievance policy provides staff with a readily accessible procedure for addressing problems or concerns they may have regarding their work, management, or another member of the team.</p>
                         <Link to={"/form"}>
                             <button>Let's Start</button>
