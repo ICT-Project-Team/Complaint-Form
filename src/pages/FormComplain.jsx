@@ -43,7 +43,7 @@ const FormComplain = () => {
             body: formData,
         };
 
-        fetch(`http://localhost:8000/api/send_complaint`, requestOptions).then(
+        fetch(process.env.REACT_APP_CONTENT_BASE_URL + `/api/send_complaint`, requestOptions).then(
             response => response.json()
         ).then(
             data => {
@@ -83,7 +83,7 @@ const FormComplain = () => {
                     <Container className={"container"}>
                         <Row className='flex-xs-column-reverse flex-sm-column-reverse flex-lg-row'>
                             <Col xs={12} lg={12}>
-                                <Form noValidate validated={validated} onSubmit={handleSubmit(onSubmit)}>
+                                <Form id={"form_complain"} noValidate validated={validated} onSubmit={handleSubmit(onSubmit)}>
                                     <Form.Group className='text-start'>
                                         <Form.Label
                                             style={{ marginRight: '1.5rem' }}
