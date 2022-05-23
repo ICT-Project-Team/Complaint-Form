@@ -15,7 +15,7 @@ import Header from "../components/header";
 
 const FormComplain = () => {
     const navigate = useNavigate();
-    const khmerMoulFont = { fontFamily: 'Moul, cursive' };
+    const khmerMoulFont = { fontFamily: "var(--font-Koulen)" };
     const [isRevealIdentity, setIsRevealIdentity] = useState('អនាមិក');
     const [facultyId, setFacultyId] = useState(1);
     const [validated, setValidated] = useState(false);
@@ -320,12 +320,14 @@ const FormComplain = () => {
                                     <Form.Group className='text-start mb-3'>
                                         <Form.Label>ប្រភេទនៃបណ្ដឹងតវា៉</Form.Label>
                                         <Form.Select
+
                                             {...register("complain_sub_category_id")}
                                             className="complaint-type-selection mb-3"
                                             onChange={(e) => setTypeOfComplain(e.target.value)}>
                                             {
                                                 complain_type.type.map((type) => {
-                                                    return <option key={type.name} value={type.id}>{type.name}</option>
+                                                    return <option
+                                                        key={type.name} value={type.id}>{type.name}</option>
                                                 })
                                             }
                                         </Form.Select>
@@ -374,7 +376,7 @@ const FormComplain = () => {
                                     <hr></hr>
                                     <Button style={
                                         {
-                                            fontFamily: 'Hanuman, serif',
+                                            fontFamily: 'var(--font-Dangrek)',
                                             backgroundColor: '#831717',
                                         }
                                     }
