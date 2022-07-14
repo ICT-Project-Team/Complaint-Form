@@ -26,4 +26,4 @@ jobs:
           username: ferupp_grievance
           password: R2804#^2022E
           local-dir: ./build/
-          server-dir: complaint-form
+          server-dir: ./complaint-form
